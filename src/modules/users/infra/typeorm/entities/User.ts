@@ -36,7 +36,7 @@ class User {
   @Expose({ name: 'avatar_url' })
   getAvatarUrl(): string | null {
     if (!this.avatar) {
-      return null;
+      return `https://${process.env.AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net/photoblobs/default_avatar.jpg`;
     }
     switch (uploadConfig.driver) {
       case 'disk':
